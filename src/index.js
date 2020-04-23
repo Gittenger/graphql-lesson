@@ -27,9 +27,11 @@ const client = new ApolloClient({
   resolvers,
 });
 
+//writes to cache
 client.writeData({
   data: {
     cartHidden: true,
+    cartItems: [],
   },
 });
 
