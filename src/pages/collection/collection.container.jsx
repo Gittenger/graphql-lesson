@@ -25,11 +25,13 @@ const CollectionPageContainer = ({ match }) => (
     query={GET_COLLECTION_BY_TITLE}
     variables={{ title: match.params.collectionId }}
   >
-    {({ loading, data }) => {
-      if (loading) return <Spinner />;
-      const { getCollectionsByTitle } = data;
-      return <CollectionPage collection={getCollectionsByTitle} />;
-    }}
+    {({ loading, data }) =>
+      loading ? (
+        <Spinner />
+      ) : (
+        <CollectionPage collection={data.getCollectionsByTitle} />
+      )
+    }
   </Query>
 );
 
